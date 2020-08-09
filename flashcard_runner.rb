@@ -24,6 +24,9 @@ def start(round)
     turn = round.take_turn(user_guess)
     display_turn_feedback(turn)
   end
+
+  display_final_score(round)
+  display_category_stats(round)
 end
 
 def display_welcome(round)
@@ -42,6 +45,23 @@ end
 
 def display_turn_feedback(turn)
   puts turn.feedback
+end
+
+def display_final_score(round)
+  puts
+  puts '****** Game over! ******'
+  puts "You had #{round.number_correct} correct guesses " \
+       "out of #{round.tot_cards} for a total score of" \
+       " #{round.percent_correct}%."
+end
+
+def display_category_stats(round)
+  categories = round.deck.cards.map(&:category)
+
+  categories.uniq.each do |category|
+    puts "#{category.capitalize} - #{round.percent_correct_by_category(category)}% correct"
+  end
+  puts
 end
 
 start(round)
