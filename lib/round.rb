@@ -18,6 +18,7 @@ class Round
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
     deck.cards.shift
+    new_turn
   end
 
   def number_correct
