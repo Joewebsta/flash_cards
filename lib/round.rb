@@ -14,10 +14,18 @@ class Round
     deck.cards.first
   end
 
+  def tot_cards
+    deck.count
+  end
+
+  def turn_num
+    turns.count + 1
+  end
+
   def take_turn(guess)
     new_turn = Turn.new(guess, current_card)
     turns << new_turn
-    deck.cards.shift
+    deck.cards.rotate!
     new_turn
   end
 

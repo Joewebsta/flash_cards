@@ -16,7 +16,7 @@ round = Round.new(deck)
 def start(round)
   display_welcome(round)
 
-  round.deck.count.times do
+  round.tot_cards.times do
     display_card_info(round)
     display_current_question(round)
     user_guess = gets.chomp
@@ -27,13 +27,13 @@ def start(round)
 end
 
 def display_welcome(round)
-  puts "Welcome! You're playing with #{round.deck.count} cards."
+  puts "Welcome! You're playing with #{round.tot_cards} cards."
   puts '-------------------------------------------------'
 end
 
 def display_card_info(round)
   puts
-  puts "This is card number #{round.turns.count + 1} out of #{round.deck.count}."
+  puts "This is card number #{round.turn_num} out of #{round.tot_cards}."
 end
 
 def display_current_question(round)
