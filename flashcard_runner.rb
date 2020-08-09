@@ -14,10 +14,22 @@ deck = Deck.new([card1, card2, card3, card4, card5, card6, card7])
 round = Round.new(deck)
 
 def start(round)
+  display_welcome(round)
+  display_card_info(round)
+
   puts round.current_card.question
   guess = gets.chomp
   turn = round.take_turn(guess)
   p turn.feedback
+end
+
+def display_welcome(round)
+  puts "Welcome! You're playing with #{round.deck.count} cards."
+  puts '-------------------------------------------------'
+end
+
+def display_card_info(round)
+  puts "This is card number #{round.turns.count + 1} out of #{round.deck.count}."
 end
 
 start(round)
