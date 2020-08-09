@@ -15,12 +15,15 @@ round = Round.new(deck)
 
 def start(round)
   display_welcome(round)
-  display_card_info(round)
 
-  puts round.current_card.question
-  guess = gets.chomp
-  turn = round.take_turn(guess)
-  p turn.feedback
+  round.deck.count.times do
+    display_card_info(round)
+    display_current_question(round)
+    user_guess = gets.chomp
+
+    turn = round.take_turn(user_guess)
+    display_turn_feedback(turn)
+  end
 end
 
 def display_welcome(round)
@@ -29,7 +32,16 @@ def display_welcome(round)
 end
 
 def display_card_info(round)
+  puts
   puts "This is card number #{round.turns.count + 1} out of #{round.deck.count}."
+end
+
+def display_current_question(round)
+  puts round.current_card.question
+end
+
+def display_turn_feedback(turn)
+  puts turn.feedback
 end
 
 start(round)
