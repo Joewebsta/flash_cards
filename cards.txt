@@ -1,0 +1,7 @@
+What is 1 + 1?,2,math
+What is 5 * 5?,25,math
+What is 100 / 10?,10,math
+What language is Ruby on Rails written in?,Ruby,code
+What does CSS stand for?,Cascading style sheets,code
+What does OOP stand for?,Object oriented programming,code
+What is the capital of MA?,Boston,geography
