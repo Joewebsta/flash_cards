@@ -7,14 +7,10 @@ class CardGenerator
     @filename = filename
   end
 
-  def open_file; end
-
   def cards
-    cards_file = File.open(filename, 'r')
-    cards = cards_file.map do |line|
+    File.readlines(filename).map do |line|
       question, answer, category = line.chomp.split(',')
-      Card.new(question, answer, category.to_sym)
+      Card.new(question, answer, category)
     end
-    cards
   end
 end
